@@ -1,17 +1,16 @@
 const fetchData = url => fetch(url);
+const cards = document.querySelectorAll('.card-info');
 
-const printInfo = cards => {
+const printInfo = ev => {
   const requestInfo = fetchData('/data.json');
   requestInfo
     .then(response => response.json())
     .then(data => {
-      for (let index = 0; index <= 6; index++) {
-        cards.children[index] + 1;
-        for (let j = 0; j < 3; j++) {
-          console.log(cards.children[index].children[j]);
-          console.log(data[index]);
-        }
-      }
+      data.forEach((card, i) => {
+        cards[i].children[1].textContent = card.timeframes[ev].current + 'hrs';
+        cards[i].children[2].children[1].textContent =
+          card.timeframes[ev].previous + 'hrs';
+      });
     });
 };
 export { printInfo };
