@@ -1,5 +1,6 @@
 // El styles lo importamos aquí, ya se carga después al compilar todo
 import '../scss/styles.scss';
-import { sayHello } from './demo.js';
+import { printInfo } from './print-info.js';
+const cardsElement = document.getElementById('cards');
 
-sayHello();
+printInfo(cardsElement);
