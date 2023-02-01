@@ -1,10 +1,12 @@
+@use '../mixins/flexbox.scss' as*;
+
 .cards-container{
     position: relative;
     display: grid;
     grid-template-columns: repeat(4,300px);
     grid-template-rows: repeat(2,300px);
     gap: 20px;
-    
+    padding-top: 3rem;
 }
 
 .card{
@@ -15,18 +17,57 @@
     background-color: var(--cards-color);
     background-repeat: no-repeat;
     background-position: top right 1em;
+    color: var(--letter-color);
     &-info{
         position: absolute;
         bottom: 0;
         width: 300px;
         height: 85%;
+        padding: 1rem 2rem;
+        font-size: 1rem;
         border-radius: 20px;
         background-color: var(--cards-color);
     }
+    &__current{
+        font-size: 4rem;
+        font-weight: 300;
+    }
+    &__list{
+        padding-top: 10rem;
+        font-size: 1.5rem;
+        
+        &-item{
+            margin-bottom: 1rem;
+            font-weight: 300;
+            cursor: pointer;
+            color:var(--pale-blue);
+            &--active{
+                color: var(--letter-color);
+            }
+        }
+    }
+    &__image{
+        width: 100px;
+        border: 2px solid white;
+        border-radius: 50%;
+    }
+    &__report{
+        margin: 0;
+        padding-top:2rem;
+    }
+    &__name{
+        margin: 0;
+        font-size: 3rem;
+        font-weight: 300;
+    }
+    
+
     &--profile{
         grid-row:1/3;
         height: 620px;
+        border-radius: 20px;
         background-color: var(--cards-color);
+        color: var(--letter-color);
     }
     &--work{
         background-color: var(--work-card);
@@ -54,6 +95,7 @@
     }
 }
 .profile-frequency{
+    padding: 3rem 2rem;
     height: 420px;
     border-radius: 20px;
     background-color: var(--profile-card);
